@@ -6,5 +6,9 @@ export class CommandeFournisseur {
 	public etatCmdFournisseur: string;
 	
 	public fournisseur: Fournisseur;
+
+	constructor() {
+        this.fournisseur = new Fournisseur();
+    }
     
 }

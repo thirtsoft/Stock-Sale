@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataTable = $(this.table.nativeElement);
-    this.dataTable.DataTable();
+    // this.dataTable = $(this.table.nativeElement);
+    // this.dataTable.DataTable();
   }
 
 

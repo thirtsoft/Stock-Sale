@@ -1,3 +1,40 @@
-<p>
-  commande-client works!
-</p>
+
+<div class="container">
+  
+  <div *ngIf="commandeClients">
+
+    <h3 class="mb-3 text-center">Commande Client List</h3>
+
+    <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">Commande Client Id</th>
+            <th scope="col">Code Commande Client</th>
+            <th scope="col">Etat Commande</th>
+            <th scope="col">Client</th>
+            <th scope="col">Date Commande</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cmdClient of commandeClients">
+            <td>{{cmdClient.idCmdClient}}</td>
+            <td>{{cmdClient.codeCmdClient}}</td>
+            <td>{{cmdClient.dateCmdClient}}</td>
+            <td>{{cmdClient.etatCmdClient}}</td>
+            <td>{{cmdClient.client.nameClient}} || {{cmdClient.client.prenomClient}}</td>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditCommandeClient(cmdClient)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteCommandeClient(cmdClient)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

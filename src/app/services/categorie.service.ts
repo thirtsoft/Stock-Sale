@@ -13,8 +13,8 @@ export class CategorieService {
 
   constructor(private http: HttpClient) { }
 
-  public getCategorie(): Observable<Categorie> {
-    return this.http.get<Categorie>(this.apiUrl + "/categories");
+  public getCategorie(): Observable<Categorie[]> {
+    return this.http.get<Categorie[]>(this.apiUrl + "/categories");
 
   }
 

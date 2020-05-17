@@ -1,3 +1,46 @@
-<p>
-  employee works!
-</p>
+
+<div class="container">
+  
+  <div *ngIf="employees">
+
+    <h3 class="mb-3 text-center">Employee List</h3>
+
+    <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Nom Employee</th>
+            <th scope="col">Prenom Employee</th>
+            <th scope="col">CNI Employee</th>
+            <th scope="col">Adresse Employee</th>
+            <th scope="col">Salaire Employee</th>
+            <th scope="col">Date Embauche</th>
+            <th scope="col">Boutique</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.nomEmp}}</td>
+            <td>{{emp.prenomEmp}}</td>
+            <td>{{emp.cniEmp}}</td>
+            <td>{{emp.adressEmp}}</td>
+            <td>{{emp.Salaire}}</td>
+            <td>{{emp.dateEmbauche}}</td>
+            <td>{{emp.boutique.nomBoutique}}</td>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditEmployee(emp)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteEmployee(emp)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

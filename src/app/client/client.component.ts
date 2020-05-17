@@ -1,3 +1,6 @@
+import { Client } from './../model/client.model';
+import { Router } from '@angular/router';
+import { ClientService } from './../services/client.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  public clients: Client[];
+
+  constructor(public clientService: ClientService, public router: Router) { }
 
   ngOnInit() {
+    this.loadClients();
   }
+
+  // Get employees list
+  loadClients() {
+    this.clientService.getClients().subscribe((data) => {
+      this.clients = data;
+    });
+
+  }
+
+  
+  onEditCat(cat) {
+
+  }
+
+  onDeleteCat(cat) {
+    
+  }
+
+  
 
 }

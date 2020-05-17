@@ -9,4 +9,8 @@ export class Inventaire {
 	
     public boutique: Boutique;
 
+    constructor() {
+        this.boutique = new Boutique();
+    }
+
 }

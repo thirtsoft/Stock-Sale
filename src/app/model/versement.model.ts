@@ -10,6 +10,11 @@ export class Versement {
 
 	public boutique: Boutique;
 	
-	public employee: Employee;
+    public employee: Employee;
+    
+    constructor() {
+        this.boutique = new Boutique();
+        this.employee = new Employee();
+    }
     
 }

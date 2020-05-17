@@ -7,5 +7,9 @@ export class CommandeClient {
 	public etatCmdClient: string;
 	
 	public client: Client;
+
+	constructor() {
+        this.client = new Client();
+    }
     
 }

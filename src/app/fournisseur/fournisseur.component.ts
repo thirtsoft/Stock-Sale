@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+import { FournisseurService } from './../services/fournisseur.service';
+import { Fournisseur } from './../model/fournisseur.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FournisseurComponent implements OnInit {
 
-  constructor() { }
+  public fournisseurs: Fournisseur[];
+
+  constructor(public fourService: FournisseurService, public router: Router) { }
 
   ngOnInit() {
+    this.loadFournisseurs();
+  }
+
+  // Get employees list
+  loadFournisseurs() {
+    this.fourService.getFournisseurs().subscribe((data) => {
+      this.fournisseurs = data;
+    });
+
+  }
+
+ 
+  onEditFournisseur(four) {
+
+  }
+
+  onDeleteFournisseur(four) {
+    
   }
 
 }

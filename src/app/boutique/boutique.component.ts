@@ -1,3 +1,6 @@
+import { Boutique } from './../model/boutique.model';
+import { Router } from '@angular/router';
+import { BoutiqueService } from './../services/boutique.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoutiqueComponent implements OnInit {
 
-  constructor() { }
+  public boutiques: Boutique[];
+
+  constructor(public boutService: BoutiqueService, public router: Router) { }
 
   ngOnInit() {
+    this.loadBoutiques();
   }
+
+  // Get employees list
+  loadBoutiques() {
+    this.boutService.getBoutiques().subscribe((data) => {
+      this.boutiques = data;
+    });
+
+  }
+
+ 
+  onEditBoutique(boutique) {
+
+  }
+
+  onDeleteBoutique(boutique) {
+    
+  }
+
 
 }

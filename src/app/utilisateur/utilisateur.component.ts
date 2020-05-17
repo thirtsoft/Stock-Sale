@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+import { UtilisateurService } from './../services/utilisateur.service';
+import { Utilisateur } from './../model/utilisateur.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UtilisateurComponent implements OnInit {
 
-  constructor() { }
+  public utilisateurs: Utilisateur[];
+
+  constructor(public userService: UtilisateurService, public router: Router) { }
 
   ngOnInit() {
+    this.loadUtilisateurs();
   }
+
+  // Get employees list
+  loadUtilisateurs() {
+    this.userService.getUtilisateurs().subscribe((data) => {
+      this.utilisateurs = data;
+    });
+
+  }
+
+ 
+  onEditUtilisateur(user) {
+
+  }
+
+  onDeleteUtilisateur(user) {
+    
+  }
+
 
 }

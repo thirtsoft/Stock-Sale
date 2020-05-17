@@ -1,3 +1,42 @@
-<p>
-  inventaire works!
-</p>
+
+<div class="container">
+  
+  <div *ngIf="inventaires">
+
+    <h3 class="mb-3 text-center">Inventaire List</h3>
+
+    <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">Inventaire Id</th>
+            <th scope="col">Code Inventaire</th>
+            <th scope="col">Chiffre Départ</th>
+            <th scope="col">Chiffre Net</th>
+            <th scope="col">Boutique</th>
+            <th scope="col">Date Inventaire</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inv of inventaires">
+            <td>{{inv.idInventaire}}</td>
+            <td>{{inv.codeInventaire}}</td>
+            <td>{{inv.chiffre_Depart}}</td>
+            <td>{{inv.chiffre_Affaire}}</td>
+            <td>{{inv.boutique.nomBoutique}}</td>
+            <td>{{inv.dateInventaire}}</td>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditInventaire(inv)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteInventaire(inv)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

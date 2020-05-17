@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <fieldset>
+      <form #addCustomerForm="ngForm" (ngSubmit)="saveCategorie(addCustomerForm.value)">
+        <div class="form-group">
+          <label for="CodeCat">Code Categorie</label>
+          <input type="text" name="codeCategorie" id="codeCategorie" class="form-control" [(ngModel)]="categorie.codeCategorie">
+        </div>
+        <div class="form-group">
+          <label for="nomCat">Nom Categorie</label>
+          <input type="text" name="catgorieName" id="catgorieName" class="form-control" [(ngModel)]="categorie.catgorieName">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </fieldset>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,14 @@
-<div class="container custom-container-2">
+
+<div class="container">
   
   <div *ngIf="categories">
 
     <h3 class="mb-3 text-center">Categorie List</h3>
 
     <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-categorie">Create</a><br />
       <table class="table table-bordered">
+        
         <thead>
           <tr>
             <th scope="col">Categorie Id</th>
@@ -19,8 +22,8 @@
             <td>{{cat.idCategorie}}</td>
             <td>{{cat.codeCategorie}}</td>
             <td>{{cat.catgorieName}}</td>
-            <td><button class="btn btn-primary btn-xs" (click)="onEditCat(cat)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button>&nbsp;&nbsp;
-              <button class="btn btn-danger btn-xs" (click)="onDeleteCat(cat)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditCat(cat)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteCat(cat)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </td>
             
           </tr>

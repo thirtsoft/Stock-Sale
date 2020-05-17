@@ -1,3 +1,6 @@
+import { Approvisionnement } from './../model/approvisionnement.model';
+import { Router } from '@angular/router';
+import { ApprovisionementService } from './../services/approvisionement.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApprovisionnementComponent implements OnInit {
 
-  constructor() { }
+  public approvisionnements: Approvisionnement[];
+
+  constructor(public approService: ApprovisionementService, public router: Router) { }
 
   ngOnInit() {
+    this.loadApprovisionnements();
+  }
+
+  // Get employees list
+  loadApprovisionnements() {
+    this.approService.getApprovisionnements().subscribe((data) => {
+      this.approvisionnements = data;
+    });
+
+  }
+
+ 
+  onEditApprovisionnement(appro) {
+
+  }
+
+  onDeleteApprovisionnement(appro) {
+    
   }
 
 }

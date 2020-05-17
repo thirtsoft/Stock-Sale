@@ -4,5 +4,9 @@ export class Approvisionnement {
 	public codeApp: string;
 	
 	public article: Article;
+
+	constructor() {
+        this.article = new Article();
+    }
 	
 }

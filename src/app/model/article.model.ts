@@ -8,5 +8,10 @@ export class Article {
 	public prixUnitaire: number;
     public photoArticle: string;
     
-    public categorie: Categorie;
+	public categorie: Categorie;
+	
+	constructor() {
+        this.categorie = new Categorie();
+    }
+
 }

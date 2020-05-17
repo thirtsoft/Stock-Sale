@@ -7,6 +7,10 @@ export class Depense {
     public montantDepense: number;
 	
     public boutique: Boutique;
+
+    constructor() {
+        this.boutique = new Boutique();
+    }
     
     
 }

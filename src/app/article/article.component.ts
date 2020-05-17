@@ -1,3 +1,6 @@
+import { Article } from './../model/article.model';
+import { Router } from '@angular/router';
+import { ArticleService } from './../services/article.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  public articles: Article[];
+
+  constructor(public artService: ArticleService, public router: Router) { }
 
   ngOnInit() {
+    this.loadArticles();
   }
+
+  
+
+  // Afficher la liste des produits
+  loadArticles(){
+    this.artService.getArticles()
+       .subscribe(data =>  {
+        this.articles = data;
+       }, err=> {
+         console.log(err);
+ 
+       })
+   }
+
+ 
+  onEditArticle(art) {
+
+  }
+
+  onDeleteArticle(art) {
+    
+  }
+
 
 }

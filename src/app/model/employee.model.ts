@@ -11,4 +11,8 @@ export class Employee {
 	
     public boutique: Boutique;
 
+    constructor() {
+        this.boutique = new Boutique();
+    }
+
 }

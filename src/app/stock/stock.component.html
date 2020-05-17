@@ -1,3 +1,38 @@
-<p>
-  stock works!
-</p>
+
+<div class="container">
+  
+  <div *ngIf="stocks">
+
+    <h3 class="mb-3 text-center">Stock List</h3>
+
+    <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">Stock Id</th>
+            <th scope="col">ref Stock</th>
+            <th scope="col">Article</th>
+            <th scope="col">Date Stock</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of stocks">
+            <td>{{stock.idStock}}</td>
+            <td>{{stock.refStock}}</td>
+            <td>{{stock.article.articleName}}</td>
+            <td>{{stock.dateStock}}</td>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditStock(stock)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteStock(stock)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

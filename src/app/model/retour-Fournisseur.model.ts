@@ -7,4 +7,8 @@ export class RetourFournisseur {
     
     public article: Article;
 
+    constructor() {
+        this.article = new Article();
+    }
+
 }

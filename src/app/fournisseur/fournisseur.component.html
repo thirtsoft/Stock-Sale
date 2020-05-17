@@ -1,3 +1,44 @@
-<p>
-  fournisseur works!
-</p>
+
+<div class="container">
+  
+  <div *ngIf="fournisseurs">
+
+    <h3 class="mb-3 text-center">Employee List</h3>
+
+    <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">Fournisseur Id</th>
+            <th scope="col">Nom Fournisseur</th>
+            <th scope="col">Prenom Fournisseur</th>
+            <th scope="col">CNI Fournisseur</th>
+            <th scope="col">Adresse Fournisseur</th>
+            <th scope="col">Telephone Fournisseur</th>
+            <th scope="col">Email Fournisseur</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let four of fournisseurs">
+            <td>{{four.idFournisseur}}</td>
+            <td>{{four.nameFournisseur}}</td>
+            <td>{{four.prenomFournisseur}}</td>
+            <td>{{four.cni}}</td>
+            <td>{{four.adresseFournisseur}}</td>
+            <td>{{four.telephoneFournisseur}}</td>
+            <td>{{four.emailFournisseur}}</td>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditFournisseur(four)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteFournisseur(four)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

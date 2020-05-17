@@ -1,3 +1,45 @@
-<p>
-  utilisateur works!
-</p>
+
+<div class="container">
+  
+  <div *ngIf="utilisateurs">
+
+    <h3 class="mb-3 text-center">Utilisateur List</h3>
+
+    <div class="col-md-12">
+      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <table class="table table-bordered">
+        
+        <thead>
+          <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">LastName</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">FastName</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Role</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of utilisateurs">
+            <td>{{user.idUtilisateur}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.photoUtilisateur}}</td>
+            <td>{{user.role.name}}</td>
+            <td><button class="btn btn-primary btn-xs" (click)="onEditUtilisateur(user)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger btn-xs" (click)="onDeleteUtilisateur(user)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
