@@ -22,18 +22,18 @@ export class CategorieService {
     return this.http.get<Categorie>(this.apiUrl + '/categories/' + id);
   }  
 
-  // HttpClient API post() method => Create employee
+  // HttpClient API post() method => Create categorie
   public createCategorie(categorie: Categorie): Observable<Categorie> {
     return this.http.post<Categorie>(this.apiUrl + '/categories', categorie);
   }  
 
-  // HttpClient API put() method => Update employee
+  // HttpClient API put() method => Update categorie
   public updateCategorie(id: number, categorie: Categorie): Observable<Categorie> {
     return this.http.put<Categorie>(this.apiUrl + '/categories/' + id, categorie);
     
   }
 
-  // HttpClient API delete() method => Delete employee
+  // HttpClient API delete() method => Delete categorie
   public deleteCategorieById(id: number){
     return this.http.delete<Categorie>(this.apiUrl + '/categories/' + id)
     

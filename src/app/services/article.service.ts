@@ -20,23 +20,23 @@ export class ArticleService {
 
   public getArticleById(id: number): Observable<Article> {
     return this.http.get<Article>(this.apiUrl + '/Aarticles/' + id);
-  }  
+  }
 
   // HttpArticle API post() method => Create employee
   public createArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(this.apiUrl + '/articles', article);
-  }  
+  }
 
   // HttpArticle API put() method => Update employee
   public updateArticle(id: number, article: Article): Observable<Article> {
     return this.http.put<Article>(this.apiUrl + '/articles/' + id, article);
-    
+
   }
 
   // HttpArticle API delete() method => Delete employee
   public deleteArticleById(id: number){
     return this.http.delete<Article>(this.apiUrl + '/articles/' + id)
-    
+
   }
 
 }

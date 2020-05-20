@@ -20,23 +20,23 @@ export class VenteService {
 
   public getVenteById(id: number): Observable<Vente> {
     return this.http.get<Vente>(this.apiUrl + '/ventes/' + id);
-  }  
+  }
 
   // HttpVente  API post() method => Create Vente
   public createVente (vente: Vente ): Observable<Vente> {
     return this.http.post<Vente >(this.apiUrl + '/ventes', vente);
-  }  
+  }
 
   // HttpVente  API put() method => Update Vente
   public updateVente (id: number, vente : Vente ): Observable<Vente> {
     return this.http.put<Vente >(this.apiUrl + '/ventes/' + id, vente );
-    
+
   }
 
   // HttpVente  API delete() method => Delete Vente
   public deleteVenteById(id: number){
     return this.http.delete<Vente >(this.apiUrl + '/ventes/' + id)
-    
+
   }
 
 }

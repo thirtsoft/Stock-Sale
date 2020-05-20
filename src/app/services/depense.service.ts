@@ -20,23 +20,23 @@ export class DepenseService {
 
   public getDepenseById(id: number): Observable<Depense> {
     return this.http.get<Depense>(this.apiUrl + '/depenses/' + id);
-  }  
+  }
 
   // HttpDepense API post() method => Create employee
   public createDepense(Depense: Depense): Observable<Depense> {
     return this.http.post<Depense>(this.apiUrl + '/Depenses', Depense);
-  }  
+  }
 
   // HttpDepense API put() method => Update employee
   public updateDepense(id: number, Depense: Depense): Observable<Depense> {
     return this.http.put<Depense>(this.apiUrl + '/depenses/' + id, Depense);
-    
+
   }
 
   // HttpDepense API delete() method => Delete employee
   public deleteDepenseById(id: number){
     return this.http.delete<Depense>(this.apiUrl + '/depenses/' + id)
-    
+
   }
 
 }

@@ -20,23 +20,23 @@ export class FournisseurService {
 
   public getFournisseurById(id: number): Observable<Fournisseur> {
     return this.http.get<Fournisseur>(this.apiUrl + '/fournisseurs/' + id);
-  }  
+  }
 
   // HttpFournisseur  API post() method => Create Fournisseur
   public createFournisseur (fournisseur: Fournisseur ): Observable<Fournisseur> {
     return this.http.post<Fournisseur >(this.apiUrl + '/fournisseurs', fournisseur);
-  }  
+  }
 
   // HttpFournisseur  API put() method => Update Fournisseur
   public updateFournisseur (id: number, fournisseur : Fournisseur ): Observable<Fournisseur> {
     return this.http.put<Fournisseur >(this.apiUrl + '/fournisseurs/' + id, fournisseur );
-    
+
   }
 
   // HttpFournisseur  API delete() method => Delete Fournisseur
   public deleteFournisseurById(id: number){
     return this.http.delete<Fournisseur >(this.apiUrl + '/fournisseurs/' + id)
-    
+
   }
 
 }

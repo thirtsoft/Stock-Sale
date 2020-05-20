@@ -20,23 +20,23 @@ export class CommandeClientService {
 
   public getCommandeClientById(id: number): Observable<CommandeClient> {
     return this.http.get<CommandeClient>(this.apiUrl + '/commandeClients/' + id);
-  }  
+  }
 
   // HttpCommandeClient API post() method => Create employee
   public createCommandeClient(commandeClient: CommandeClient): Observable<CommandeClient> {
     return this.http.post<CommandeClient>(this.apiUrl + '/commandeClients', commandeClient);
-  }  
+  }
 
   // HttpCommandeClient API put() method => Update employee
   public updateCommandeClient(id: number, commandeClient: CommandeClient): Observable<CommandeClient> {
     return this.http.put<CommandeClient>(this.apiUrl + '/commandeClients/' + id, commandeClient);
-    
+
   }
 
   // HttpCommandeClient API delete() method => Delete employee
   public deleteCommandeClientById(id: number){
     return this.http.delete<CommandeClient>(this.apiUrl + '/commandeClients/' + id)
-    
+
   }
 
 }

@@ -20,23 +20,23 @@ export class StockService {
 
   public getStockById(id: number): Observable<Stock> {
     return this.http.get<Stock>(this.apiUrl + '/stocks/' + id);
-  }  
+  }
 
   // HttpStock  API post() method => Create Stock
   public createStock (stock: Stock ): Observable<Stock> {
     return this.http.post<Stock >(this.apiUrl + '/stocks', stock);
-  }  
+  }
 
   // HttpStock  API put() method => Update Stock
   public updateStock (id: number, stock : Stock ): Observable<Stock> {
     return this.http.put<Stock >(this.apiUrl + '/stocks/' + id, stock );
-    
+
   }
 
   // HttpStock  API delete() method => Delete Stock
   public deleteStockById(id: number){
     return this.http.delete<Stock >(this.apiUrl + '/stocks/' + id)
-    
+
   }
 
 }

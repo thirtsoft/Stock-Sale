@@ -20,24 +20,23 @@ export class ClientService {
 
   public getClientById(id: number): Observable<Client> {
     return this.http.get<Client>(this.apiUrl + '/clients/' + id);
-  }  
+  }
 
   // HttpClient API post() method => Create employee
   public createClient(client: Client): Observable<Client> {
     return this.http.post<Client>(this.apiUrl + '/clients', client);
-  }  
+  }
 
   // HttpClient API put() method => Update employee
   public updateClient(id: number, client: Client): Observable<Client> {
     return this.http.put<Client>(this.apiUrl + '/clients/' + id, client);
-    
+
   }
 
   // HttpClient API delete() method => Delete employee
   public deleteClientById(id: number){
     return this.http.delete<Client>(this.apiUrl + '/clients/' + id)
-    
+
   }
 
-  
 }
