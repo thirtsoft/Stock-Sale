@@ -18,8 +18,6 @@ export class ArticleComponent implements OnInit {
     this.loadArticles();
   }
 
-  
-
   // Afficher la liste des produits
   loadArticles(){
     this.artService.getArticles()
@@ -27,17 +25,28 @@ export class ArticleComponent implements OnInit {
         this.articles = data;
        }, err=> {
          console.log(err);
- 
-       })
-   }
 
- 
-  onEditArticle(art) {
+       });
+  }
+
+
+  onEditArticle(art: Article) {
+    this.router.navigate(['/edit-article/'+art.idArticle]);
+  }
+
+  onDeleteArticle(art: Article) {
+    let conf = confirm("Etes vous sur de vouloir supprimer Cet Article");
+    if(!conf) return;
+    this.artService.deleteArticleById(art.idArticle).subscribe((data) => {
+      this.loadArticles();
+    }, error => {
+      console.log(error);
+    });
 
   }
 
-  onDeleteArticle(art) {
-    
+  onCreateArticel() {
+    this.router.navigate['/create-article'];
   }
 
 

@@ -38,8 +38,10 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {path: 'categorie-list', component: CategorieComponent},
   {path: 'create-categorie', component: CreateCategorieComponent},
+  {path: 'edit-categorie/:id', component: CreateCategorieComponent},
   {path: 'article-list', component: ArticleComponent},
   {path: 'create-article', component: CreateArticleComponent},
+  {path: 'edit-article/:id', component: CreateArticleComponent},
   {path: 'approvisionnements', component: ApprovisionnementComponent},
   {path: 'approvisionnement/new', component: CreateApprovisionnementComponent},
   {path: 'boutique-list', component: BoutiqueComponent},

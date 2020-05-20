@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./categorie.component.scss']
 })
 export class CategorieComponent implements OnInit {
+
   public categories: Categorie[];
 
   constructor(public catService: CategorieService, public router: Router) { }
@@ -25,18 +26,25 @@ export class CategorieComponent implements OnInit {
 
   }
 
-  addCategorie(dataCategorie: Categorie) {
-    this.catService.createCategorie(dataCategorie).subscribe((data: {}) => {
-      this.router.navigate(['/categorie-list'])
-    })
+
+  onEditCat(cat: Categorie) {
+    this.router.navigate(['/edit-categorie/'+cat.idCategorie]);
   }
 
-  onEditCat(cat) {
+  onDeleteCat(cat: Categorie) {
+    let conf = confirm("Etes vous sur de vouloir supprimer");
+    if(!conf) return;
+    this.catService.deleteCategorieById(cat.idCategorie).subscribe((data) => {
+      this.loadCategories();
+    }, error => {
+      console.log(error);
+    });
 
   }
 
-  onDeleteCat(cat) {
-    
-  }
+  onCreateCategorie() {
+    // this.mode='new-cat';
+    this.router.navigate(['/create-categorie']);
+   }
 
 }
