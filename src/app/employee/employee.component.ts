@@ -22,18 +22,32 @@ export class EmployeeComponent implements OnInit {
   loadEmployees() {
     this.empService.getEmployees().subscribe((data) => {
       this.employees = data;
+    }, error => {
+      console.log(error);
     });
 
   }
 
- 
-  onEditEmployee(emp) {
+  onCreateEmployee() {
+    this.router.navigate(['/create-employee']);
+  }
+
+
+  onEditEmployee(emp: Employee) {
+    this.router.navigate(['/edit-employee/' + emp.id]);
+  }
+
+  onDeleteEmployee(emp: Employee) {
+    let conf = confirm("Etes-vous sur de vouloir supprimer cet employee");
+    if (!conf) return;
+    this.empService.deleteEmployeeById(emp.id).subscribe((data) => {
+      this.loadEmployees();
+    }, error => {
+      console.log(error);
+    });
 
   }
 
-  onDeleteEmployee(emp) {
-    
-  }
 
 
 }

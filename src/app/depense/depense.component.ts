@@ -12,7 +12,7 @@ export class DepenseComponent implements OnInit {
 
   public depenses: Depense[];
 
-  constructor(public depenseService: DepenseService, public router: Router) { }
+  constructor(public depService: DepenseService, public router: Router) { }
 
   ngOnInit() {
     this.loadDepenses();
@@ -20,19 +20,33 @@ export class DepenseComponent implements OnInit {
 
   // Get employees list
   loadDepenses() {
-    this.depenseService.getDepenses().subscribe((data) => {
+    this.depService.getDepenses().subscribe((data) => {
       this.depenses = data;
+    }, error=> {
+      console.log(error);
+    } );
+
+  }
+
+
+  onEditDepense(dep: Depense) {
+    this.router.navigate(['/edit-depense/' + dep.idDepense]);
+
+  }
+
+  onDeleteDepense(dep: Depense) {
+    let conf = confirm("Etes vous sur de vouloir supprimer Cet Article");
+    if(!conf) return;
+    this.depService.deleteDepenseById(dep.idDepense).subscribe((data) => {
+      this.loadDepenses();
+    }, error => {
+      console.log(error);
     });
 
   }
 
- 
-  onEditDepense(dep) {
-
-  }
-
-  onDeleteDepense(dep) {
-    
+  onCreateDepense() {
+    this.router.navigate(['/create-depense']);
   }
 
 

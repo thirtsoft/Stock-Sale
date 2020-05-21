@@ -22,19 +22,32 @@ export class ClientComponent implements OnInit {
   loadClients() {
     this.clientService.getClients().subscribe((data) => {
       this.clients = data;
+    }, error => {
+      console.log(error);
     });
 
   }
 
-  
-  onEditCat(cat) {
+
+  onEditClient(client: Client) {
+    this.router.navigate(['/edit-client/' +client.idClient]);
+  }
+
+  onDeleteClient(client: Client) {
+    let conf = confirm("Etes vous sur de vouloir supprimer Cet Article");
+    if(!conf) return;
+    this.clientService.deleteClientById(client.idClient).subscribe((data) => {
+      this.loadClients();
+    }, error => {
+      console.log(error);
+    });
 
   }
 
-  onDeleteCat(cat) {
-    
+  onCreateClient() {
+    this.router.navigate(['/create-client']);
   }
 
-  
+
 
 }

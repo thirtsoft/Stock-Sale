@@ -6,7 +6,7 @@
     <h3 class="mb-3 text-center">Article List</h3>
 
     <div class="col-md-12">
-      <a type="button" class="btn btn-primary" (click)="onCreateArticel()">Create</a><br />
+      <a type="button" class="btn btn-primary" (click)="onCreateArticle()">Create</a><br />
       <table class="table table-bordered">
 
         <thead>
@@ -14,7 +14,6 @@
             <th scope="col">Article Id</th>
             <th scope="col">Code Article</th>
             <th scope="col">Nom Article</th>
-            <th scope="col">Nom Boutique</th>
             <th scope="col">Quantie</th>
             <th scope="col">prix Unitaire</th>
             <th scope="col">Categorie</th>
@@ -27,7 +26,6 @@
             <td>{{art.idArticle}}</td>
             <td>{{art.codeArticle}}</td>
             <td>{{art.articleName}}</td>
-            <td>{{art.quantite}}</td>
             <td>{{art.quantite}}</td>
             <td>{{art.prixUnitaire}}</td>
             <td>{{art.categorie.catgorieName}}</td>

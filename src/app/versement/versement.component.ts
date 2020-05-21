@@ -22,17 +22,31 @@ export class VersementComponent implements OnInit {
   loadVersements() {
     this.verService.getVersements().subscribe((data) => {
       this.versements = data;
+    }, error => {
+      console.log(error);
     });
 
   }
 
- 
-  onEditVersement(vers) {
+  onCreateVersement() {
+    this.router.navigate(['/create-versement']);
+  }
+
+
+  onEditVersement(vers: Versement) {
+    this.router.navigate(['/edit-versement/' + vers.idVersement]);
 
   }
 
-  onDeleteVersement(vers) {
-    
+  onDeleteVersement(vers: Versement) {
+    let conf = confirm("Etes-vous sur de vouloir supprimer le versement");
+    if (!conf) return;
+    this.verService.deleteVersementById(vers.idVersement).subscribe((data) => {
+      this.loadVersements();
+    }, error => {
+      console.log(error);
+    });
+
   }
 
 }

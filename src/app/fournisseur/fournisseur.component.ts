@@ -22,17 +22,31 @@ export class FournisseurComponent implements OnInit {
   loadFournisseurs() {
     this.fourService.getFournisseurs().subscribe((data) => {
       this.fournisseurs = data;
+    }, error => {
+      console.log(error);
     });
 
   }
 
- 
-  onEditFournisseur(four) {
+
+  onEditFournisseur(four: Fournisseur) {
+    this.router.navigate(['/edit-fournisseur/'+ four.idFournisseur]);
 
   }
 
-  onDeleteFournisseur(four) {
-    
+  onDeleteFournisseur(four: Fournisseur) {
+    let conf = confirm("Etes vous sur de vouloir supprimer Ce fournisseur");
+    if(!conf) return;
+    this.fourService.deleteFournisseurById(four.idFournisseur).subscribe((data) => {
+      this.loadFournisseurs();
+    }, error => {
+      console.log(error);
+    });
+
+  }
+
+  onCreateFournisseur() {
+    this.router.navigate(['/create-fournisseur']);
   }
 
 }

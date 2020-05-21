@@ -22,17 +22,31 @@ export class BoutiqueComponent implements OnInit {
   loadBoutiques() {
     this.boutService.getBoutiques().subscribe((data) => {
       this.boutiques = data;
+    }, error => {
+      console.log(error);
     });
 
   }
 
- 
-  onEditBoutique(boutique) {
+  onEditBoutique(shop: Boutique) {
+    this.router.navigate(['/edit-boutique/' +shop.idBoutique]);
 
   }
 
-  onDeleteBoutique(boutique) {
-    
+  onDeleteBoutique(shop: Boutique) {
+    let conf = confirm("Est-vous sur de vouloir supprimer cet boutique");
+    if (!conf) return;
+    this.boutService.deleteBoutiqueById(shop.idBoutique).subscribe((data) => {
+      this.loadBoutiques();
+    }, error => {
+      console.log(error);
+    });
+
+
+  }
+
+  onCreateBoutique() {
+    this.router.navigate(['/create-boutique']);
   }
 
 

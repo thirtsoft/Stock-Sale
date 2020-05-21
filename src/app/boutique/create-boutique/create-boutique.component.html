@@ -1,3 +1,39 @@
-<p>
-  create-boutique works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6" *ngIf="mode==1">
+      <form #addBoutiqueForm="ngForm" (ngSubmit)="saveBoutique(addBoutiqueForm.value)">
+        <fieldset>
+        <div class="form-group">
+          <label for="CodeCat">Nom</label>
+          <input type="text" name="codeBoutique" id="codeBoutique" class="form-control" [(ngModel)]="boutique.codeBoutique">
+        </div>
+        <div class="form-group">
+          <label for="CodeCat">Prenom</label>
+          <input type="text" name="nomBoutique" id="nomBoutique" class="form-control" [(ngModel)]="boutique.nomBoutique">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>&nbsp;
+        <button type="submit" class="btn btn-info" (click)="onGotoBoutiqueList()">Annuler</button>
+      </fieldset>
+      </form>
+    </div>
+
+    <div class="col-sm-6" *ngIf="mode==0">
+      <div class="panel-body" *ngIf="currentBoutique">
+      <form #editBoutiqueForm="ngForm" (ngSubmit)="updateBoutique(editBoutiqueForm.value)">
+        <fieldset>
+          <div class="form-group">
+            <label for="CodeCat">Nom</label>
+            <input type="text" name="codeBoutique" id="codeBoutique" class="form-control" [(ngModel)]="currentBoutique.codeBoutique">
+          </div>
+          <div class="form-group">
+            <label for="CodeCat">Prenom</label>
+            <input type="text" name="nomBoutique" id="nomBoutique" class="form-control" [(ngModel)]="currentBoutique.nomBoutique">
+          </div>
+        <button type="submit" class="btn btn-success">Save</button>&nbsp;
+        <button type="submit" class="btn btn-info" (click)="onGotoBoutiqueList()">Annuler</button>
+      </fieldset>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>

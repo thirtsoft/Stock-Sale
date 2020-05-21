@@ -1,14 +1,14 @@
 
 <div class="container">
-  
+
   <div *ngIf="boutiques">
 
     <h3 class="mb-3 text-center">Boutique List</h3>
 
     <div class="col-md-12">
-      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <a type="button" class="btn btn-primary" (click)="onCreateBoutique()">Create</a><br />
       <table class="table table-bordered">
-        
+
         <thead>
           <tr>
             <th scope="col">Boutique Id</th>
@@ -25,7 +25,7 @@
             <td><button class="btn btn-primary btn-xs" (click)="onEditBoutique(boutique)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
               <button class="btn btn-danger btn-xs" (click)="onDeleteBoutique(boutique)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </td>
-            
+
           </tr>
         </tbody>
       </table>

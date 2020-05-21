@@ -23,13 +23,13 @@ export class DepenseService {
   }
 
   // HttpDepense API post() method => Create employee
-  public createDepense(Depense: Depense): Observable<Depense> {
-    return this.http.post<Depense>(this.apiUrl + '/Depenses', Depense);
+  public createDepense(depense: Depense): Observable<Depense> {
+    return this.http.post<Depense>(this.apiUrl + '/depenses', depense);
   }
 
   // HttpDepense API put() method => Update employee
-  public updateDepense(id: number, Depense: Depense): Observable<Depense> {
-    return this.http.put<Depense>(this.apiUrl + '/depenses/' + id, Depense);
+  public updateDepense(id: number, depense: Depense): Observable<Depense> {
+    return this.http.put<Depense>(this.apiUrl + '/depenses/' + id, depense);
 
   }
 

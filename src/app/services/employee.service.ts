@@ -24,18 +24,18 @@ export class EmployeeService {
 
   // HttpEmployee  API post() method => Create employee
   public createEmployee (employee: Employee ): Observable<Employee> {
-    return this.http.post<Employee >(this.apiUrl + '/employees', employee);
+    return this.http.post<Employee>(this.apiUrl + '/employees', employee);
   }
 
   // HttpEmployee  API put() method => Update employee
-  public updateEmployee (id: number, employee : Employee ): Observable<Employee> {
-    return this.http.put<Employee >(this.apiUrl + '/employees/' + id, employee );
+  public updateEmployee (id: number, employee: Employee): Observable<Employee> {
+    return this.http.put<Employee>(this.apiUrl + '/employees/' + id, employee );
 
   }
 
   // HttpEmployee  API delete() method => Delete employee
   public deleteEmployeeById(id: number){
-    return this.http.delete<Employee >(this.apiUrl + '/employees/' + id)
+    return this.http.delete<Employee>(this.apiUrl + '/employees/' + id)
 
   }
 

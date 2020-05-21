@@ -18,21 +18,35 @@ export class InventaireComponent implements OnInit {
     this.loadInventaires();
   }
 
-  // Get employees list
+  // Get Inventaire list
   loadInventaires() {
     this.invService.getInventaires().subscribe((data) => {
       this.inventaires = data;
+    }, error => {
+      console.log(error);
     });
 
   }
 
- 
-  onEditInventaire(inv) {
+
+  onEditInventaire(inv: Inventaire) {
+    this.router.navigate(['/edit-inventaire/' + inv.idInventaire]);
 
   }
 
-  onDeleteInventaire(inv) {
-    
+  onDeleteInventaire(inv: Inventaire) {
+    let conf = confirm("Etes-vous sur de supprimer cet inventaire");
+    if (!conf) return;
+    this.invService.deleteInventaireById(inv.idInventaire).subscribe((data) => {
+      this.loadInventaires();
+    }, error => {
+      console.log(error);
+    });
+
+  }
+
+  onCreateInventaire() {
+    this.router.navigate(['/create-inventaire']);
   }
 
 

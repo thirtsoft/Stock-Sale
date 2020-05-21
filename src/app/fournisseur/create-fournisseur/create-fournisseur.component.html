@@ -1,3 +1,71 @@
-<p>
-  create-fournisseur works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6" *ngIf="mode==1">
+      <form #addFournisseurForm="ngForm" (ngSubmit)="saveFournisseur(addFournisseurForm.value)">
+        <fieldset>
+        <div class="form-group">
+          <label for="CodeCat">Cni</label>
+          <input type="text" name="cni" id="cni" class="form-control" [(ngModel)]="fournisseur.cni">
+        </div>
+        <div class="form-group">
+          <label for="CodeCat">Nom</label>
+          <input type="text" name="nameFournisseur" id="nameFournisseur" class="form-control" [(ngModel)]="fournisseur.nameFournisseur">
+        </div>
+        <div class="form-group">
+          <label for="CodeCat">Prenom</label>
+          <input type="text" name="prenomFournisseur" id="prenomFournisseur" class="form-control" [(ngModel)]="fournisseur.prenomFournisseur">
+        </div>
+        <div class="form-group">
+          <label for="CodeCat">Adresse</label>
+          <input type="text" name="adresseFournisseur" id="adresseFournisseur" class="form-control" [(ngModel)]="fournisseur.adresseFournisseur">
+        </div>
+        <div class="form-group">
+          <label for="nomCat">telephone</label>
+          <input type="text" name="telephoneFournisseur" id="telephoneFournisseur" class="form-control" [(ngModel)]="fournisseur.telephoneFournisseur">
+        </div>
+        <div class="form-group">
+          <label for="nomCat">Email</label>
+          <input type="text" name="emailFournisseur" id="emailFournisseur" class="form-control" [(ngModel)]="fournisseur.emailFournisseur">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>&nbsp;
+        <button type="submit" class="btn btn-info" (click)="onGotoFournisseurList()">Annuler</button>
+      </fieldset>
+      </form>
+    </div>
+
+    <div class="col-sm-6" *ngIf="mode==0">
+      <div class="panel-body" *ngIf="currentFournisseur">
+        <form #editFournisseurForm="ngForm" (ngSubmit)="updateFournisseur(editFournisseurForm.value)">
+          <fieldset>
+          <div class="form-group">
+            <label for="CodeCat">Cni</label>
+            <input type="text" name="cni" id="cni" class="form-control" [(ngModel)]="currentFournisseur.cni">
+          </div>
+          <div class="form-group">
+            <label for="CodeCat">Nom</label>
+            <input type="text" name="nameFournisseur" id="nameFournisseur" class="form-control" [(ngModel)]="currentFournisseur.nameFournisseur">
+          </div>
+          <div class="form-group">
+            <label for="CodeCat">Prenom</label>
+            <input type="text" name="prenomFournisseur" id="prenomFournisseur" class="form-control" [(ngModel)]="currentFournisseur.prenomFournisseur">
+          </div>
+          <div class="form-group">
+            <label for="CodeCat">Adresse</label>
+            <input type="text" name="adresseFournisseur" id="adresseFournisseur" class="form-control" [(ngModel)]="currentFournisseur.adresseFournisseur">
+          </div>
+          <div class="form-group">
+            <label for="nomCat">telephone</label>
+            <input type="text" name="telephoneFournisseur" id="telephoneFournisseur" class="form-control" [(ngModel)]="currentFournisseur.telephoneFournisseur">
+          </div>
+          <div class="form-group">
+            <label for="nomCat">Email</label>
+            <input type="text" name="emailFournisseur" id="emailFournisseur" class="form-control" [(ngModel)]="currentFournisseur.emailFournisseur">
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>&nbsp;
+          <button type="submit" class="btn btn-info" (click)="onGotoFournisseurList()">Annuler</button>
+        </fieldset>
+        </form>
+    </div>
+  </div>
+  </div>
+</div>

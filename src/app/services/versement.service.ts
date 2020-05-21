@@ -35,7 +35,7 @@ export class VersementService {
 
   // HttpVersement  API delete() method => Delete Versement
   public deleteVersementById(id: number){
-    return this.http.delete<Versement >(this.apiUrl + '/versements/' + id)
+    return this.http.delete<Versement>(this.apiUrl + '/versements/' + id)
 
   }
 

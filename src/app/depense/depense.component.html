@@ -1,20 +1,21 @@
 
 <div class="container">
-  
+
   <div *ngIf="depenses">
 
-    <h3 class="mb-3 text-center">Commande Fournisseur List</h3>
+    <h3 class="mb-3 text-center">Gestion des Depenses List</h3>
 
     <div class="col-md-12">
-      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <a type="button" class="btn btn-primary" (click)="onCreateDepense()">Create</a><br />
       <table class="table table-bordered">
-        
+
         <thead>
           <tr>
-            <th scope="col">Commande Fournisseur Id</th>
-            <th scope="col">Etat Fournisseur</th>
-            <th scope="col">Client</th>
-            <th scope="col">Date Commande</th>
+            <th scope="col">Depense Id</th>
+            <th scope="col">Nature</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Montant</th>
+            <th scope="col">Boutique</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -28,7 +29,7 @@
             <td><button class="btn btn-primary btn-xs" (click)="onEditDepense(dep)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
               <button class="btn btn-danger btn-xs" (click)="onDeleteDepense(dep)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </td>
-            
+
           </tr>
         </tbody>
       </table>

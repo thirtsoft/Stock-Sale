@@ -19,7 +19,7 @@ export class ArticleService {
   }
 
   public getArticleById(id: number): Observable<Article> {
-    return this.http.get<Article>(this.apiUrl + '/Aarticles/' + id);
+    return this.http.get<Article>(this.apiUrl + '/articles/' + id);
   }
 
   // HttpArticle API post() method => Create employee

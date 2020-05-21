@@ -1,3 +1,79 @@
-<p>
-  create-employee works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" *ngIf="mode==1">
+      <form #addDEmployeeForm="ngForm" (ngSubmit)="saveEmployee(addDEmployeeForm.value)">
+        <fieldset>
+          <legend>Informations de l'employee</legend>
+          <div class="form-group">
+            <label class="control-label">Nom</label>
+            <input type="text" name="nomEmp" id="nomEmp" class="form-control" [(ngModel)]="employee.nomEmp">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Prénom</label>
+            <input type="text" name="prenomEmp" id="prenomEmp" class="form-control" [(ngModel)]="employee.prenomEmp">
+          </div>
+          <div class="form-group">
+            <label class="control-label">CNI</label>
+            <input type="text" name="cniEmp" id="cniEmp" class="form-control" [(ngModel)]="employee.cniEmp">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Salaire</label>
+            <input type="number" name="Salaire" id="Salaire" class="form-control" [(ngModel)]="employee.Salaire">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Adresse</label>
+            <input type="text" name="adressEmp" id="adressEmp" class="form-control" [(ngModel)]="employee.adressEmp">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Boutique</label>
+            <select name="boutique" id="boutique" [(ngModel)]="employee.boutique" class="form-control">
+              <option [ngValue]="employee.boutique">Selectionner la boutique</option>
+              <option *ngFor="let bout of boutiques" [ngValue]="bout">{{bout.nomBoutique}}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>&nbsp;
+          <button type="submit" class="btn btn-info" (click)="onGoToListEmployee()">Annuler</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="col-sm-8" *ngIf="mode==0">
+      <div class="panel-body" *ngIf="currentEmployee">
+        <form #editDEmployeeForm="ngForm" (ngSubmit)="updateEmployee(editDEmployeeForm.value)">
+          <fieldset>
+            <legend>update Employee</legend>
+            <div class="form-group">
+              <label class="control-label">Nom</label>
+              <input type="text" name="nomEmp" id="nomEmp" class="form-control" [(ngModel)]="currentEmployee.nomEmp">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Prénom</label>
+              <input type="text" name="prenomEmp" id="prenomEmp" class="form-control" [(ngModel)]="currentEmployee.prenomEmp">
+            </div>
+            <div class="form-group">
+              <label class="control-label">CNI</label>
+              <input type="text" name="cniEmp" id="cniEmp" class="form-control" [(ngModel)]="currentEmployee.cniEmp">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Salaire</label>
+              <input type="number" name="Salaire" id="Salaire" class="form-control" [(ngModel)]="currentEmployee.Salaire">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Adresse</label>
+              <input type="text" name="adressEmp" id="adressEmp" class="form-control" [(ngModel)]="currentEmployee.adressEmp">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="boutique">Boutique</label>
+              <select class="form-control" id="boutique" name="boutique" [(ngModel)]="currentEmployee.boutique">
+                <option [ngValue]="boutiqueOption.idBoutique == currentEmployee.boutique?.idBoutique ? currentEmployee.boutique : boutiqueOption"
+                  *ngFor="let boutiqueOption of boutiques">{{boutiqueOption.nomBoutique}}</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>&nbsp;
+            <button type="submit" class="btn btn-info" (click)="onGoToListEmployee()">Annuler</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

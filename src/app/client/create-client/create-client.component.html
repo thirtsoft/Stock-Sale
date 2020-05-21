@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">
-      <fieldset>
+    <div class="col-sm-6" *ngIf="mode==1">
       <form #addCustomerForm="ngForm" (ngSubmit)="saveClient(addCustomerForm.value)">
+        <fieldset>
         <div class="form-group">
           <label for="CodeCat">Nom</label>
           <input type="text" name="nameClient" id="nameClient" class="form-control" [(ngModel)]="client.nameClient">
@@ -23,9 +23,41 @@
           <label for="nomCat">Email</label>
           <input type="text" name="emailClient" id="emailClient" class="form-control" [(ngModel)]="client.emailClient">
         </div>
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-success">Save</button>&nbsp;
+        <button type="submit" class="btn btn-info" (click)="onGotoClientList()">Annuler</button>
+      </fieldset>
       </form>
-    </fieldset>
     </div>
+
+    <div class="col-sm-6" *ngIf="mode==0">
+      <div class="panel-body" *ngIf="currentClient">
+      <form #editCustomerForm="ngForm" (ngSubmit)="updateClient(editCustomerForm.value)">
+        <fieldset>
+        <div class="form-group">
+          <label class="control-label">Nom</label>
+          <input type="text" name="nameClient" id="nameClient" class="form-control" [(ngModel)]="currentClient.nameClient">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Prenom</label>
+          <input type="text" name="prenomClient" id="prenomClient" class="form-control" [(ngModel)]="currentClient.prenomClient">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Addresse</label>
+          <input type="text" name="adresseClient" id="adresseClient" class="form-control" [(ngModel)]="currentClient.adresseClient">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Telephone</label>
+          <input type="text" name="telephoneClient" id="telephoneClient" class="form-control" [(ngModel)]="currentClient.telephoneClient">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Email</label>
+          <input type="text" name="emailClient" id="emailClient" class="form-control" [(ngModel)]="currentClient.emailClient">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>&nbsp;
+        <button type="submit" class="btn btn-info" (click)="onGotoClientList()">Annuler</button>
+      </fieldset>
+      </form>
+    </div>
+  </div>
   </div>
 </div>

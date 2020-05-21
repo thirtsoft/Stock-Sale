@@ -3,38 +3,67 @@
     <div class="col-sm-8" *ngIf="mode==1">
       <form #addArticleForm="ngForm" (ngSubmit)="saveArticle(addArticleForm.value)">
         <fieldset>
-          <legend>Informations du client</legend>
+          <legend>Informations de l'Article</legend>
           <div class="form-group">
-            <label class="control-label">Code Categorie</label>
-            <input type="text" name="codeCategorie" id="codeCategorie" class="form-control"
-              [(ngModel)]="categorie.codeCategorie">
+            <label class="control-label">Code Article</label>
+            <input type="text" name="codeArticle" id="codeArticle" class="form-control" [(ngModel)]="article.codeArticle">
           </div>
           <div class="form-group">
-            <label for="nomCat" class="control-label">Nom Categorie</label>
-            <input type="text" name="catgorieName" id="catgorieName" class="form-control"
-              [(ngModel)]="categorie.catgorieName">
+            <label class="control-label">Nom Article</label>
+            <input type="text" name="articleName" id="articleName" class="form-control" [(ngModel)]="article.articleName">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Quantité</label>
+            <input type="number" name="quantite" id="quantite" class="form-control" [(ngModel)]="article.quantite">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Prix</label>
+            <input type="number" name="prixUnitaire" id="prixUnitaire" class="form-control" [(ngModel)]="article.prixUnitaire">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Categorie</label>
+            <select name="categorie" id="categorie" [(ngModel)]="article.categorie" class="form-control">
+              <option [ngValue]="article.categorie">Selectiooner la Categorie</option>
+              <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.catgorieName}}</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-success">Save</button>&nbsp;
-          <button type="submit" class="btn btn-info" (click)="onGoToListCategorie()">Annuler</button>
+          <button type="submit" class="btn btn-info" (click)="onGoToListArticle()">Annuler</button>
         </fieldset>
       </form>
     </div>
 
     <div class="col-sm-8" *ngIf="mode==0">
-      <div class="panel-body" *ngIf="currentCategorie">
+      <div class="panel-body" *ngIf="currentArticle">
       <form #editArticleForm="ngForm" (ngSubmit)="uptdateArticle(editArticleForm.value)">
         <fieldset>
           <legend>Update du client</legend>
           <div class="form-group">
-            <label class="control-label">Code Categorie</label>
-            <input type="text" name="codeCategorie" [(ngModel)]="currentCategorie.codeCategorie" class="form-control">
+            <label class="control-label">Code Article</label>
+            <input type="text" name="codeArticle" [(ngModel)]="currentArticle.codeArticle" class="form-control">
           </div>
           <div class="form-group">
-            <label class="control-label">Nom Categorie</label>
-            <input type="text" name="catgorieName" [(ngModel)]="currentCategorie.catgorieName" class="form-control">
+            <label class="control-label">Nom Article</label>
+            <input type="text" name="articleName" [(ngModel)]="currentArticle.articleName" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Quantite</label>
+            <input type="text" name="quantite" [(ngModel)]="currentArticle.quantite" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Prix</label>
+            <input type="text" name="prixUnitaire" [(ngModel)]="currentArticle.prixUnitaire" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="categorie">Categorie</label>
+            <select class="form-control" id="categorie" name="categorie" [(ngModel)]="currentArticle.categorie">
+              <option [ngValue]="categorieOption.idCategorie == currentArticle.categorie?.idCategorie ? currentArticle.categorie : categorieOption"
+                *ngFor="let categorieOption of categories">{{categorieOption.catgorieName}}</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-success">Save</button>&nbsp;
-          <button type="submit" class="btn btn-info" (click)="onGoToListCategorie()">Annuler</button>
+          <button type="submit" class="btn btn-info" (click)="onGoToListArticle()">Annuler</button>
         </fieldset>
       </form>
     </div>

@@ -1,3 +1,77 @@
-<p>
-  create-versement works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8" *ngIf="mode==1">
+      <form #addVersementForm="ngForm" (ngSubmit)="saveVersement(addVersementForm.value)">
+        <fieldset>
+          <legend>Informations du verment</legend>
+          <div class="form-group">
+            <label class="control-label">Code Versement</label>
+            <input type="text" name="codeVersement" id="codeVersement" class="form-control" [(ngModel)]="versement.codeVersement">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Montant Versé</label>
+            <input type="number" name="montantVersement" id="montantVersement" class="form-control" [(ngModel)]="versement.montantVersement">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Facture</label>
+            <input type="number" name="factureVersment" id="factureVersment" class="form-control" [(ngModel)]="versement.factureVersment">
+          </div>
+          <div class="form-group">
+            <label class="control-label">Employee</label>
+            <select name="employee" id="employee" [(ngModel)]="versement.employee" class="form-control">
+              <option [ngValue]="versement.employee">Selectionner employee</option>
+              <option *ngFor="let emp of employees" [ngValue]="emp">{{emp.prenomEmp}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Boutique</label>
+            <select name="boutique" id="boutique" [(ngModel)]="versement.boutique" class="form-control">
+              <option [ngValue]="versement.boutique">Selectionner la boutique</option>
+              <option *ngFor="let bout of boutiques" [ngValue]="bout">{{bout.nomBoutique}}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">Save</button>&nbsp;
+          <button type="submit" class="btn btn-info" (click)="onGoToListVersement()">Annuler</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="col-sm-8" *ngIf="mode==0">
+      <div class="panel-body" *ngIf="currentVersment">
+        <form #editVersementForm="ngForm" (ngSubmit)="updateVersement(editVersementForm.value)">
+          <fieldset>
+            <legend>update Versement</legend>
+            <div class="form-group">
+              <label class="control-label">Code Versement</label>
+              <input type="text" name="codeVersement" id="codeVersement" class="form-control" [(ngModel)]="currentVersment.codeVersement">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Montant Versé</label>
+              <input type="number" name="montantVersement" id="montantVersement" class="form-control" [(ngModel)]="currentVersment.montantVersement">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Facture</label>
+              <input type="number" name="factureVersment" id="factureVersment" class="form-control" [(ngModel)]="currentVersment.factureVersment">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="employee">Employee</label>
+              <select class="form-control" id="employee" name="employee" [(ngModel)]="currentVersment.employee">
+                <option [ngValue]="employeeOption.id == currentVersment.employee?.id ? currentVersment.employee : employeeOption"
+                  *ngFor="let employeeOption of employees">{{employeeOption.prenomEmp}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="boutique">Boutique</label>
+              <select class="form-control" id="boutique" name="boutique" [(ngModel)]="currentVersment.boutique">
+                <option [ngValue]="boutiqueOption.idBoutique == currentVersment.boutique?.idBoutique ? currentVersment.boutique : boutiqueOption"
+                  *ngFor="let boutiqueOption of boutiques">{{boutiqueOption.nomBoutique}}</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>&nbsp;
+            <button type="submit" class="btn btn-info" (click)="onGoToListVersement()">Annuler</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
