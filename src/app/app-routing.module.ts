@@ -24,66 +24,67 @@ import { ArticleComponent } from './article/article.component';
 import { InventaireComponent } from './inventaire/inventaire.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { Utilisateur } from './model/utilisateur.model';
 import { VersementComponent } from './versement/versement.component';
 import { RoleComponent } from './role/role.component';
 import { DepenseComponent } from './depense/depense.component';
-import { Fournisseur } from './model/fournisseur.model';
 import { ClientComponent } from './client/client.component';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import { CategorieComponent } from './categorie/categorie.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: 'categorie-list', component: CategorieComponent},
-  {path: 'create-categorie', component: CreateCategorieComponent},
-  {path: 'edit-categorie/:id', component: CreateCategorieComponent},
-  {path: 'article-list', component: ArticleComponent},
-  {path: 'create-article', component: CreateArticleComponent},
-  {path: 'edit-article/:id', component: CreateArticleComponent},
-  {path: 'approvisionnements', component: ApprovisionnementComponent},
-  {path: 'approvisionnement/new', component: CreateApprovisionnementComponent},
-  {path: 'boutique-list', component: BoutiqueComponent},
-  {path: 'create-boutique', component: CreateBoutiqueComponent},
-  {path: 'edit-boutique/:id', component: CreateBoutiqueComponent},
-  {path: 'client-list', component: ClientComponent},
-  {path: 'create-client', component: CreateClientComponent},
-  {path: 'edit-client/:id', component: CreateClientComponent},
-  {path: 'commandeClient-list', component: CommandeClientComponent},
-  {path: 'create-commandeClient', component: CreateCommandeClientComponent},
-  {path: 'edit-commandeClient/:id', component: CreateCommandeClientComponent},
-  {path: 'fournisseur-list', component: FournisseurComponent},
-  {path: 'create-fournisseur', component: CreateFournisseurComponent},
-  {path: 'edit-fournisseur/:id', component: CreateFournisseurComponent},
-  {path: 'commandeFournisseur-list', component: CommandeFournisseurComponent},
-  {path: 'create-commandeFournisseur', component: CreateCommandeFournisseurComponent},
-  {path: 'edit-commandeFournisseur/:id', component: CreateCommandeFournisseurComponent},
-  {path: 'vente-list', component: VenteComponent},
-  {path: 'create-vente', component: CreateVenteComponent},
-  {path: 'edit-vente/:id', component: CreateVenteComponent},
-  {path: 'depense-list', component: DepenseComponent},
-  {path: 'create-depense', component: CreateDepenseComponent},
-  {path: 'edit-depense/:id', component: CreateDepenseComponent},
-  {path: 'versement-list', component: VersementComponent},
-  {path: 'create-versement', component: CreateVersementComponent},
-  {path: 'edit-versement/:id', component: CreateVersementComponent},
-  {path: 'stock-list', component: StockComponent},
-  {path: 'create-stock', component: CreateStockComponent},
-  {path: 'edit-stock/:id', component: CreateStockComponent},
-  {path: 'inventaire-list', component: InventaireComponent},
-  {path: 'create-inventaire', component: CreateInventaireComponent},
-  {path: 'edit-inventaire/:id', component: CreateInventaireComponent},
+  {path: '', component: HomeComponent, children : [
+    {path: 'categorie-list', component: CategorieComponent},
+    {path: 'create-categorie', component: CreateCategorieComponent},
+    {path: 'edit-categorie/:id', component: CreateCategorieComponent},
+    {path: 'article-list', component: ArticleComponent},
+    {path: 'create-article', component: CreateArticleComponent},
+    {path: 'edit-article/:id', component: CreateArticleComponent},
+    {path: 'approvisionnements', component: ApprovisionnementComponent},
+    {path: 'approvisionnement/new', component: CreateApprovisionnementComponent},
+    {path: 'boutique-list', component: BoutiqueComponent},
+    {path: 'create-boutique', component: CreateBoutiqueComponent},
+    {path: 'edit-boutique/:id', component: CreateBoutiqueComponent},
+    {path: 'client-list', component: ClientComponent},
+    {path: 'create-client', component: CreateClientComponent},
+    {path: 'edit-client/:id', component: CreateClientComponent},
+    {path: 'commandeClient-list', component: CommandeClientComponent},
+    {path: 'create-commandeClient', component: CreateCommandeClientComponent},
+    {path: 'edit-commandeClient/:id', component: CreateCommandeClientComponent},
+    {path: 'fournisseur-list', component: FournisseurComponent},
+    {path: 'create-fournisseur', component: CreateFournisseurComponent},
+    {path: 'edit-fournisseur/:id', component: CreateFournisseurComponent},
+    {path: 'commandeFournisseur-list', component: CommandeFournisseurComponent},
+    {path: 'create-commandeFournisseur', component: CreateCommandeFournisseurComponent},
+    {path: 'edit-commandeFournisseur/:id', component: CreateCommandeFournisseurComponent},
+    {path: 'vente-list', component: VenteComponent},
+    {path: 'create-vente', component: CreateVenteComponent},
+    {path: 'edit-vente/:id', component: CreateVenteComponent},
+    {path: 'depense-list', component: DepenseComponent},
+    {path: 'create-depense', component: CreateDepenseComponent},
+    {path: 'edit-depense/:id', component: CreateDepenseComponent},
+    {path: 'versement-list', component: VersementComponent},
+    {path: 'create-versement', component: CreateVersementComponent},
+    {path: 'edit-versement/:id', component: CreateVersementComponent},
+    {path: 'stock-list', component: StockComponent},
+    {path: 'create-stock', component: CreateStockComponent},
+    {path: 'edit-stock/:id', component: CreateStockComponent},
+    {path: 'inventaire-list', component: InventaireComponent},
+    {path: 'create-inventaire', component: CreateInventaireComponent},
+    {path: 'edit-inventaire/:id', component: CreateInventaireComponent},
 
-  {path: 'employee-list', component: EmployeeComponent},
-  {path: 'create-employee', component: CreateEmployeeComponent},
-  {path: 'edit-employee/:id', component: CreateEmployeeComponent},
-  {path: 'role-lsit', component: RoleComponent},
-  {path: 'create-role', component: CreateRoleComponent},
-  {path: 'edit-role/:id', component: CreateRoleComponent},
-  {path: 'utilisateur-list', component: UtilisateurComponent},
-  {path: 'create-utilisateur', component: CreateUtilisateurComponent},
-  {path: 'edit-utilisateur/:id', component: CreateUtilisateurComponent}
+    {path: 'employee-list', component: EmployeeComponent},
+    {path: 'create-employee', component: CreateEmployeeComponent},
+    {path: 'edit-employee/:id', component: CreateEmployeeComponent},
+    {path: 'role-list', component: RoleComponent},
+    {path: 'create-role', component: CreateRoleComponent},
+    {path: 'edit-role/:id', component: CreateRoleComponent},
+    {path: 'utilisateur-list', component: UtilisateurComponent},
+    {path: 'create-utilisateur', component: CreateUtilisateurComponent},
+    {path: 'edit-utilisateur/:id', component: CreateUtilisateurComponent}
+  ]}
 ];
 
 @NgModule({

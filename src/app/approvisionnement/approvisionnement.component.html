@@ -1,19 +1,19 @@
 
 <div class="container">
-  
+
   <div *ngIf="approvisionnements">
 
     <h3 class="mb-3 text-center">Approvisionnement List</h3>
 
     <div class="col-md-12">
-      <a type="button" class="btn btn-primary" routerLink="/create-boutique">Create</a><br />
+      <a type="button" class="btn btn-primary" (click)="onCreateApprovisionnement()">Create</a><br />
       <table class="table table-bordered">
-        
+
         <thead>
           <tr>
-            <th scope="col">Boutique Id</th>
-            <th scope="col">Code Boutique</th>
-            <th scope="col">Nom Boutique</th>
+            <th scope="col">Entrée Id</th>
+            <th scope="col">Code</th>
+            <th scope="col">Article</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -25,7 +25,7 @@
             <td><button class="btn btn-primary btn-xs" (click)="onEditApprovisionnement(appro)" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;&nbsp;
               <button class="btn btn-danger btn-xs" (click)="onDeleteApprovisionnement(appro)" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span> Delete</button>
             </td>
-            
+
           </tr>
         </tbody>
       </table>

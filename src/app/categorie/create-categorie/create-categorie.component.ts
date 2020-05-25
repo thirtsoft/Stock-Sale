@@ -18,13 +18,13 @@ export class CreateCategorieComponent implements OnInit {
   constructor(private catService: CategorieService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.idCat = this.route.snapshot.params['id'];
-    this.catService.getCategorieById(this.idCat)
-      .subscribe(data => {
-        this.currentCategorie = data;
-      },err=> {
-        console.log(err);
-      });
+    // this.idCat = this.route.snapshot.params['id'];
+    // this.catService.getCategorieById(this.idCat)
+    //   .subscribe(data => {
+    //     this.currentCategorie = data;
+    //   },err=> {
+    //     console.log(err);
+    //   });
   }
 
   saveCategorie(cat: Categorie) {

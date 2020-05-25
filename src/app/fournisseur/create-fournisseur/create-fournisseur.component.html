@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-6" *ngIf="mode==1">
       <form #addFournisseurForm="ngForm" (ngSubmit)="saveFournisseur(addFournisseurForm.value)">
@@ -68,4 +68,132 @@
     </div>
   </div>
   </div>
+</div> -->
+
+<div class="row">
+  <div class="col-lg-12" *ngIf="mode==0">
+    <section class="panel">
+      <header class="panel-heading">
+        Saisir les Informations du fournisseur
+      </header>
+      <div class="panel-body">
+        <div class="form">
+          <form #addFournisseurForm="ngForm" (ngSubmit)="saveFournisseur(addFournisseurForm.value)">
+            <div class="form-group ">
+              <label for="cni" class="control-label col-lg-2">CNI <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="cni" name="cni" type="text" [(ngModel)]="fournisseur.cni" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="nameFournisseur" class="control-label col-lg-2">Nom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="nameFournisseur" name="nameFournisseur" type="text" [(ngModel)]="fournisseur.nameFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="prenomFournisseur" class="control-label col-lg-2">Prénom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prenomFournisseur" name="prenomFournisseur" type="text" [(ngModel)]="fournisseur.prenomFournisseur"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="adresseFournisseur" class="control-label col-lg-2">Adresse <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="adresseFournisseur" name="adresseFournisseur" type="text" [(ngModel)]="fournisseur.adresseFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="telephoneFournisseur" class="control-label col-lg-2">Téléphone <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="telephoneFournisseur" name="telephoneFournisseur" type="text" [(ngModel)]="fournisseur.telephoneFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="emailfournisseur" class="control-label col-lg-2">Email <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="emailFournisseur" name="emailFournisseur" type="text" [(ngModel)]="fournisseur.emailFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)=" onGotoFournisseurList()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-12"  *ngIf="mode==1">
+    <section class="panel">
+      <header class="panel-heading">
+        Modifier le fournisseur
+      </header>
+      <div class="panel-body" *ngIf="currentFournisseur">
+        <div class="form">
+          <form #editFournisseurForm="ngForm" (ngSubmit)="uptdateFournisseur(editFournisseurForm.value)">
+            <div class="form-group ">
+              <label for="cni" class="control-label col-lg-2">CNI <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="cni" name="cni" type="text" [(ngModel)]="currentFournisseur.cni" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="nameFournisseur" class="control-label col-lg-2">Nom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="nameFournisseur" name="nameFournisseur" type="text" [(ngModel)]="currentFournisseur.nameFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="prenomFournisseur" class="control-label col-lg-2">Prénom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prenomFournisseur" name="prenomFournisseur" type="text" [(ngModel)]="currentFournisseur.prenomFournisseur"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="adresseFournisseur" class="control-label col-lg-2">Adresse <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="adresseFournisseur" name="adresseFournisseur" type="text" [(ngModel)]="currentFournisseur.adresseFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="telephoneFournisseur" class="control-label col-lg-2">Téléphone <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="telephoneFournisseur" name="telephoneFournisseur" type="text" [(ngModel)]="currentFournisseur.telephoneFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="emailfournisseur" class="control-label col-lg-2">Email <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="emailFournisseur" name="emailFournisseur" type="text" [(ngModel)]="currentFournisseur.emailFournisseur" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGotoFournisseurList()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
+<!-- page end-->
+
+

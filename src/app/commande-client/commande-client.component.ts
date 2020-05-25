@@ -26,13 +26,17 @@ export class CommandeClientComponent implements OnInit {
 
   }
 
- 
+
   onEditCommandeClient(cmdClient) {
 
   }
 
   onDeleteCommandeClient(cmdClient) {
-    
+
+  }
+
+  onCreateCommandeClient() {
+    this.router.navigate(['/create-commandeClient']);
   }
 
 }

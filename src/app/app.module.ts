@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+declare var $ : any;
+//import * as $ from 'jquery';
+//window['$'] = window['jQuery'] = $;
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
@@ -37,6 +39,7 @@ import { RoleComponent } from './role/role.component';
 import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { VenteComponent } from './vente/vente.component';
 import { CreateVenteComponent } from './vente/create-vente/create-vente.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,8 @@ import { CreateVenteComponent } from './vente/create-vente/create-vente.componen
     RoleComponent,
     CreateRoleComponent,
     VenteComponent,
-    CreateVenteComponent
+    CreateVenteComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

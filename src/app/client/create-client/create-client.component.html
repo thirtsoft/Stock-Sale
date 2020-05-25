@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-6" *ngIf="mode==1">
       <form #addCustomerForm="ngForm" (ngSubmit)="saveClient(addCustomerForm.value)">
@@ -60,4 +60,117 @@
     </div>
   </div>
   </div>
+</div> -->
+
+<div class="row">
+  <div class="col-lg-12" *ngIf="mode==0">
+    <section class="panel">
+      <header class="panel-heading">
+        Saisir les Informations de l'client
+      </header>
+      <div class="panel-body">
+        <div class="form">
+          <form #addClientForm="ngForm" (ngSubmit)="saveClient(addClientForm.value)">
+            <div class="form-group ">
+              <label for="nameClient" class="control-label col-lg-2">Nom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="nameClient" name="nameClient" type="text" [(ngModel)]="client.nameClient" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="prenomClient" class="control-label col-lg-2">Prénom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prenomClient" name="prenomClient" type="text" [(ngModel)]="client.prenomClient" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="quantite" class="control-label col-lg-2">Adresse <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="adresseClient" name="adresseClient" type="text" [(ngModel)]="client.adresseClient"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="telephoneClient" class="control-label col-lg-2">Téléphone <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="telephoneClient" name="telephoneClient" type="text" [(ngModel)]="client.telephoneClient" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="emailClient" class="control-label col-lg-2">Email <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="emailClient" name="emailClient" type="text" [(ngModel)]="client.emailClient" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGotoClientList()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-12"  *ngIf="mode==1">
+    <section class="panel">
+      <header class="panel-heading">
+        Modifier le client
+      </header>
+      <div class="panel-body" *ngIf="currentClient">
+        <div class="form">
+          <form #editClientForm="ngForm" (ngSubmit)="uptdateClient(editClientForm.value)">
+            <div class="form-group ">
+              <label for="nameClient" class="control-label col-lg-2">Nom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="nameClient" name="nameClient" type="text" [(ngModel)]="currentClient.nameClient" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="prenomClient" class="control-label col-lg-2">Prénom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prenomClient" name="prenomClient" type="text" [(ngModel)]="currentClient.prenomClient" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="quantite" class="control-label col-lg-2">Adresse <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="adresseClient" name="adresseClient" type="text" [(ngModel)]="currentClient.adresseClient"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="telephoneClient" class="control-label col-lg-2">Téléphone <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="telephoneClient" name="telephoneClient" type="text" [(ngModel)]="currentClient.telephoneClient" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="emailClient" class="control-label col-lg-2">Email <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="emailClient" name="emailClient" type="text" [(ngModel)]="currentClient.emailClient" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGotoClientList()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
+<!-- page end-->
+

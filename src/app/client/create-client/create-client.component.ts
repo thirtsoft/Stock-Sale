@@ -17,12 +17,12 @@ export class CreateClientComponent implements OnInit {
   constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.idClient = this.route.snapshot.params['id'];
+   /*  this.idClient = this.route.snapshot.params['id'];
     this.clientService.getClientById(this.idClient).subscribe((data) => {
       this.currentClient = data;
     }, error => {
       console.log(error);
-    });
+    }); */
   }
 
   saveClient(dataClient: Client) {

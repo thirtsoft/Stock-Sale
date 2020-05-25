@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-8" *ngIf="mode==1">
       <form #addDEmployeeForm="ngForm" (ngSubmit)="saveEmployee(addDEmployeeForm.value)">
@@ -76,4 +76,136 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="row">
+  <div class="col-lg-12" *ngIf="mode==0">
+    <section class="panel">
+      <header class="panel-heading">
+        Saisir les Informations de l'employee
+      </header>
+      <div class="panel-body">
+        <div class="form">
+          <form #addEmployeeForm="ngForm" (ngSubmit)="saveEmployee(addEmployeeForm.value)">
+            <div class="form-group ">
+              <label for="nomEmp" class="control-label col-lg-2">Nom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="nomEmp" name="nomEmp" type="text" [(ngModel)]="employee.nomEmp" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="prenomEmp" class="control-label col-lg-2">Prénom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prenomEmp" name="prenomEmp" type="text" [(ngModel)]="employee.prenomEmp" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="cniEmp" class="control-label col-lg-2">CNI <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="cniEmp" name="cniEmp" type="text" [(ngModel)]="employee.cniEmp"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="Salaire" class="control-label col-lg-2">Salaire <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="Salaire" name="Salaire" type="number" [(ngModel)]="employee.Salaire" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="adressEmp" class="control-label col-lg-2">Adresse <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="adressEmp" name="adressEmp" type="text" [(ngModel)]="employee.adressEmp" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <label class="control-label col-lg-2">Boutique</label>
+              <div class="col-lg-offset-2 col-lg-10">
+                <select class="form-control input-lg m-bot1" id="boutique" name="boutique" [(ngModel)]="currentEmployee.boutique">
+                  <option [ngValue]="boutiqueOption.idBoutique == currentEmployee.boutique?.idBoutique ? currentEmployee.boutique : boutiqueOption"
+                    *ngFor="let boutiqueOption of boutiques">{{boutiqueOption.nomBoutique}}</option>
+                </select>
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGoToListEmployee()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-12"  *ngIf="mode==1">
+    <section class="panel">
+      <header class="panel-heading">
+        Modifier le employee
+      </header>
+      <div class="panel-body" *ngIf="currentEmployee">
+        <div class="form">
+          <form #editEmployeeForm="ngForm" (ngSubmit)="uptdateEmployee(editEmployeeForm.value)">
+            <div class="form-group ">
+              <label for="nomEmp" class="control-label col-lg-2">Nom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="nomEmp" name="nomEmp" type="text" [(ngModel)]="currentEmployee.nomEmp" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="prenomEmp" class="control-label col-lg-2">Prénom <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prenomEmp" name="prenomEmp" type="text" [(ngModel)]="currentEmployee.prenomEmp" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="cniEmp" class="control-label col-lg-2">CNI <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="cniEmp" name="cniEmp" type="text" [(ngModel)]="currentEmployee.cniEmp"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="Salaire" class="control-label col-lg-2">Salaire <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="Salaire" name="Salaire" type="number" [(ngModel)]="currentEmployee.Salaire" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="adressEmp" class="control-label col-lg-2">Adresse <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="adressEmp" name="adressEmp" type="text" [(ngModel)]="currentEmployee.adressEmp" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <label class="control-label col-lg-2">Boutique</label>
+              <div class="col-lg-10">
+                <select name="boutique" id="boutique" [(ngModel)]="employee.boutique" class="form-control input-lg m-bot15">
+                  <option [ngValue]="employee.boutique">Selectionner la boutique</option>
+                  <option *ngFor="let bout of boutiques" [ngValue]="bout">{{bout.nomBoutique}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGoToListEmployee()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
+<!-- page end-->
+

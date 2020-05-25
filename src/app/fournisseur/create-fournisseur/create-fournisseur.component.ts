@@ -18,13 +18,13 @@ export class CreateFournisseurComponent implements OnInit {
   constructor(private fourService: FournisseurService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.idFour = this.route.snapshot.params['id'];
+    /* this.idFour = this.route.snapshot.params['id'];
     this.fourService.getFournisseurById(this.idFour)
       .subscribe(data => {
         this.currentFournisseur = data;
       },err=> {
         console.log(err);
-      });
+      }); */
   }
 
 

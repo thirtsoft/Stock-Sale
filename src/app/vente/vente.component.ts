@@ -26,13 +26,17 @@ export class VenteComponent implements OnInit {
 
   }
 
- 
+
   onEditVente(vent) {
 
   }
 
   onDeleteVente(vent) {
-    
+
+  }
+
+  onCreateVente() {
+    this.router.navigate(['/create-vente']);
   }
 
 }

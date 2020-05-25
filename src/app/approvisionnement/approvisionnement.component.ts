@@ -26,13 +26,17 @@ export class ApprovisionnementComponent implements OnInit {
 
   }
 
- 
+
   onEditApprovisionnement(appro) {
 
   }
 
   onDeleteApprovisionnement(appro) {
-    
+
+  }
+
+  onCreateApprovisionnement() {
+    this.router.navigate(['/approvisionnement/new']);
   }
 
 }

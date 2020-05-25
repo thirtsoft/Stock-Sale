@@ -22,12 +22,12 @@ export class CreateArticleComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.idArt = this.route.snapshot.params['id'];
+    /* this.idArt = this.route.snapshot.params['id'];
     this.artService.getArticleById(this.idArt).subscribe((data) => {
      this.currentArticle = data;
       }, error => {
       console.log(error);
-    });
+    }); */
 
     this.geAllCategorie();
   }

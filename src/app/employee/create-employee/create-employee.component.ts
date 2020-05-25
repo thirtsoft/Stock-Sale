@@ -22,13 +22,13 @@ export class CreateEmployeeComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.idEmp = this.route.snapshot.params['id'];
+   /*  this.idEmp = this.route.snapshot.params['id'];
     this.empService.getEmployeeById(this.idEmp).subscribe((data) => {
       this.currentEmployee = data;
     }, error => {
       console.log(error);
     });
-
+ */
     this.getAllBoutiques();
 
   }

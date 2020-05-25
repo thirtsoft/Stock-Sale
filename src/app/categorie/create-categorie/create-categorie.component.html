@@ -1,43 +1,67 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8" *ngIf="mode==1">
-      <form #addCustomerForm="ngForm" (ngSubmit)="saveCategorie(addCustomerForm.value)">
-        <fieldset>
-          <legend>Informations du client</legend>
-          <div class="form-group">
-            <label for="CodeCat" class="control-label">Code Categorie</label>
-            <input type="text" name="codeCategorie" id="codeCategorie" class="form-control"
-              [(ngModel)]="categorie.codeCategorie">
-          </div>
-          <div class="form-group">
-            <label for="nomCat" class="control-label">Nom Categorie</label>
-            <input type="text" name="catgorieName" id="catgorieName" class="form-control"
-              [(ngModel)]="categorie.catgorieName">
-          </div>
-          <button type="submit" class="btn btn-success">Save</button>&nbsp;
-          <button type="submit" class="btn btn-info" (click)="onGoToListCategorie()">Annuler</button>
-        </fieldset>
-      </form>
-    </div>
-
-    <div class="col-sm-8" *ngIf="mode==0">
-      <div class="panel-body" *ngIf="currentCategorie">
-      <form #editCategorieForm="ngForm" (ngSubmit)="uptdateCategorie(editCategorieForm.value)">
-        <fieldset>
-          <legend>Update du client</legend>
-          <div class="form-group">
-            <label class="control-label">Code Categorie</label>
-            <input type="text" name="codeCategorie" [(ngModel)]="currentCategorie.codeCategorie" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="control-label">Nom Categorie</label>
-            <input type="text" name="catgorieName" [(ngModel)]="currentCategorie.catgorieName" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-success">Save</button>&nbsp;
-          <button type="submit" class="btn btn-info" (click)="onGoToListCategorie()">Annuler</button>
-        </fieldset>
-      </form>
-    </div>
-    </div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2" *ngIf="mode==0">
+    <section class="panel">
+      <header class="panel-heading">
+        Saisir les Informations de la Catégorie
+      </header>
+      <div class="panel-body">
+        <div class="form">
+          <form #addCustomerForm="ngForm" (ngSubmit)="saveCategorie(addCustomerForm.value)">
+            <div class="form-group ">
+              <label for="codeCategorie" class="control-label col-lg-2">Code <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" [(ngModel)]="categorie.codeCategorie" id="codeCategorie" name="codeCategorie" type="text" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="catgorieName" class="control-label col-lg-2">Libellé <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" [(ngModel)]="categorie.catgorieName" id="catgorieName" name="catgorieName" type="text" />
+              </div>
+            </div>&nbsp;
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGoToListCategorie()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <div class="col-lg-12"  *ngIf="mode==1">
+    <section class="panel">
+      <header class="panel-heading">
+        Modifier la Catégorie
+      </header>
+      <div class="panel-body" *ngIf="currentCategorie">
+        <div class="form">
+          <form #editCategorieForm="ngForm" (ngSubmit)="uptdateCategorie(editCategorieForm.value)">
+            <div class="form-group ">
+              <label for="codeCategorie" class="control-label col-lg-2">Code <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" [(ngModel)]="currentCategorie.codeCategorie" id="codeCategorie" name="codeCategorie" type="text" />
+              </div>
+            </div>&nbsp;
+            <div class="form-group ">
+              <label for="catgorieName" class="control-label col-lg-2">Libelle <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" [(ngModel)]="currentCategorie.catgorieName" id="catgorieName" name="catgorieName" type="text" />
+              </div>
+            </div>&nbsp;
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGoToListCategorie()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
+<!-- page end-->

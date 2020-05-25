@@ -26,13 +26,17 @@ export class CommandeFournisseurComponent implements OnInit {
 
   }
 
- 
+
   onEditCommandeFournisseur(cmdFournisseur) {
 
   }
 
   onDeleteCommandeFournisseur(cmdFournisseur) {
-    
+
+  }
+
+  onCreateCommandeFournisseur() {
+    this.router.navigate(['/create-commandeFournisseur']);
   }
 
 

@@ -1,6 +1,6 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
-    <div class="col-sm-8" *ngIf="mode==1">
+    <div class="col-sm-8" *ngIf="mode==0">
       <form #addArticleForm="ngForm" (ngSubmit)="saveArticle(addArticleForm.value)">
         <fieldset>
           <legend>Informations de l'Article</legend>
@@ -34,7 +34,7 @@
       </form>
     </div>
 
-    <div class="col-sm-8" *ngIf="mode==0">
+    <div class="col-sm-8" *ngIf="mode==1">
       <div class="panel-body" *ngIf="currentArticle">
       <form #editArticleForm="ngForm" (ngSubmit)="uptdateArticle(editArticleForm.value)">
         <fieldset>
@@ -69,4 +69,123 @@
     </div>
     </div>
   </div>
+</div> -->
+
+
+<div class="row">
+  <div class="col-lg-12" *ngIf="mode==0">
+    <section class="panel">
+      <header class="panel-heading">
+        Saisir les Informations de l'Article
+      </header>
+      <div class="panel-body">
+        <div class="form">
+          <form #addArticleForm="ngForm" (ngSubmit)="saveArticle(addArticleForm.value)">
+            <div class="form-group ">
+              <label for="codeArticle" class="control-label col-lg-2">Code <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="codeArticle" name="codeArticle" type="text" [(ngModel)]="article.codeArticle" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="articleName" class="control-label col-lg-2">Désignation <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="articleName" name="articleName" type="text" [(ngModel)]="article.articleName" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="quantite" class="control-label col-lg-2">Quantité <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="quantite" name="quantite" type="number" [(ngModel)]="article.codeArticle"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="prixUnitaire" class="control-label col-lg-2">PU <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prixUnitaire" name="prixUnitaire" type="text" [(ngModel)]="article.prixUnitaire" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <label class="control-label col-lg-2">Categorie <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <select name="categorie" id="categorie" [(ngModel)]="article.categorie" class="form-control input-lg m-bot15">
+                  <option [ngValue]="article.categorie">Selectiooner la Categorie</option>
+                  <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.catgorieName}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGoToListArticle()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-12"  *ngIf="mode==1">
+    <section class="panel">
+      <header class="panel-heading">
+        Modifier l'Article
+      </header>
+      <div class="panel-body" *ngIf="currentArticle">
+        <div class="form">
+          <form #editArticleForm="ngForm" (ngSubmit)="uptdateArticle(editArticleForm.value)">
+            <div class="form-group ">
+              <label for="codeArticle" class="control-label col-lg-2">Code <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="codeArticle" name="codeArticle" type="text" [(ngModel)]="currentArticle.codeArticle" />
+              </div>
+            </div>&nbsp;&nbsp;
+            <div class="form-group ">
+              <label for="articleName" class="control-label col-lg-2">Désignation <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="articleName" name="articleName" type="text" [(ngModel)]="currentArticle.articleName" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group ">
+              <label for="quantite" class="control-label col-lg-2">Quantité <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="quantite" name="quantite" type="number" [(ngModel)]="currentArticle.codeArticle"/>
+              </div>
+            </div>&nbsp;&nbsp;
+
+            <div class="form-group ">
+              <label for="prixUnitaire" class="control-label col-lg-2">PU <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <input class=" form-control" id="prixUnitaire" name="prixUnitaire" type="number" [(ngModel)]="currentArticle.prixUnitaire" />
+              </div>
+            </div>&nbsp;
+
+            <div class="form-group">
+              <label class="control-label col-lg-2">Categorie <span class="required">*</span></label>
+              <div class="col-lg-10">
+                <select class="form-control input-lg m-bot15" id="categorie" name="categorie" [(ngModel)]="currentArticle.categorie">
+                  <option [ngValue]="categorieOption.idCategorie == currentArticle.categorie?.idCategorie ? currentArticle.categorie : categorieOption"
+                    *ngFor="let categorieOption of categories">{{categorieOption.catgorieName}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;
+                <button class="btn btn-default" type="button" (click)="onGoToListArticle()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
+<!-- page end-->
