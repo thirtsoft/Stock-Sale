@@ -33,6 +33,7 @@
               "src/styles.scss"
             ],
             "scripts": [
+
               "node_modules/datatables.net/js/jquery.dataTables.js"
             ]
           },

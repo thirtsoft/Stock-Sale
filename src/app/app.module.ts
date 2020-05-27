@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-declare var $ : any;
+import { DataTablesModule } from 'angular-datatables';
+declare var $: any;
 //import * as $ from 'jquery';
 //window['$'] = window['jQuery'] = $;
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +41,7 @@ import { CreateRoleComponent } from './role/create-role/create-role.component';
 import { VenteComponent } from './vente/vente.component';
 import { CreateVenteComponent } from './vente/create-vente/create-vente.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -76,14 +78,17 @@ import { HomeComponent } from './home/home.component';
     CreateRoleComponent,
     VenteComponent,
     CreateVenteComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
